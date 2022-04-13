@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:icon="@drawable/ic_baseline_restaurant_menu_24"
-        android:title="Меню" />
+        android:icon="@drawable/ic_baseline_dynamic_feed_24"
+        android:title="@string/home_button" />
     <item
         android:icon="@drawable/ic_baseline_people_alt_24"
-        android:title="Профиль" />
+        android:title="@string/profile_button" />
     <item
-        android:icon="@drawable/ic_baseline_shopping_basket_24"
-        android:title="Корзина" />
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings_button" />
 </menu>

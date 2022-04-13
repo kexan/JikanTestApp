@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
+import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
+import com.example.myapplication.R
 import com.example.myapplication.adapter.AnimeAdapter
 import com.example.myapplication.adapter.OnInteractionListener
 import com.example.myapplication.databinding.FragmentFeedBinding
@@ -29,6 +32,10 @@ class FeedFragment : Fragment() {
 
         val adapter = AnimeAdapter(object : OnInteractionListener {
             override fun clickedOnCard(anime: Anime) {
+                animeViewModel.holdAnime(anime)
+                findNavController().navigate(
+                    R.id.action_feedFragment_to_fullAnimeFragment
+                )
             }
 
         })
@@ -38,6 +45,20 @@ class FeedFragment : Fragment() {
                 adapter.submitData(it)
             }
         }
+
+        viewLifecycleOwner.lifecycle.coroutineScope.launchWhenCreated {
+            adapter.loadStateFlow.collectLatest {
+                binding.swiperefresh.isRefreshing =
+                    it.refresh is LoadState.Loading ||
+                            it.prepend is LoadState.Loading ||
+                            it.append is LoadState.Loading
+            }
+        }
+
+        binding.swiperefresh.setOnRefreshListener {
+            adapter.refresh()
+        }
+
 
         binding.list.adapter = adapter
 

@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.example.myapplication.activity.FeedFragment"
-        android:label="FeedFragment" />
+        android:label="FeedFragment" >
+        <action
+            android:id="@+id/action_feedFragment_to_fullAnimeFragment"
+            app:destination="@id/fullAnimeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fullAnimeFragment"
+        android:name="com.example.myapplication.activity.FullAnimeFragment"
+        android:label="FullAnimeFragment" />
 </navigation>

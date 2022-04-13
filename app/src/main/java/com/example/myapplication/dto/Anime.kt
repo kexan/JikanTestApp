@@ -16,7 +16,12 @@ data class Anime(
 data class Data(
     val id: Long = 0,
     val title: String = "",
+    @SerializedName("title_japanese")
+    val titleJapanese: String? = "",
+    val year: Int? = 0,
+    val episodes: Int? = 0,
     val synopsis: String = "",
+    val score: Float = 0F,
     val images: Images = Images()
 )
 
@@ -25,5 +30,8 @@ data class Images(
 )
 
 data class Jpg(
-    val image_url: String? = "",
+    @SerializedName("image_url")
+    val imageUrl: String? = "",
+    @SerializedName("large_image_url")
+    val largeImgUrl: String? = ""
 )

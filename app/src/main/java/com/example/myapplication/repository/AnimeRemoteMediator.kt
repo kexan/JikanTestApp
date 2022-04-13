@@ -10,6 +10,7 @@ import com.example.myapplication.dao.AnimeDao
 import com.example.myapplication.db.AppDb
 import com.example.myapplication.entity.AnimeEntity
 import com.example.myapplication.entity.toEntity
+import kotlinx.coroutines.delay
 import java.lang.Exception
 
 @OptIn(ExperimentalPagingApi::class)
@@ -29,7 +30,7 @@ class AnimeRemoteMediator(
                     service.getRandomAnime()
                 }
                 LoadType.PREPEND -> {
-                    return MediatorResult.Success(false)
+                    service.getRandomAnime()
                 }
                 LoadType.APPEND -> {
                     return MediatorResult.Success(true)

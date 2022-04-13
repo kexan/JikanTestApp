@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
     android:clickable="true"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    android:focusable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,19 +18,19 @@
             android:id="@+id/picture"
             android:layout_width="@dimen/pic_size"
             android:layout_height="@dimen/pic_size"
+            android:layout_marginStart="8dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@mipmap/pizza_foreground" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/titleName"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            app:layout_constraintBottom_toTopOf="@+id/description"
+            app:layout_constraintBottom_toTopOf="@+id/synopsis"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/picture"
             app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +38,7 @@
             tools:text="Ветчина и грибы" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/synopsis"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/common_spacing"
@@ -45,23 +46,27 @@
             android:maxLines="8"
             android:textAppearance="?attr/textAppearanceBody2"
             android:textColor="?android:attr/textColorSecondary"
-            app:layout_constraintEnd_toEndOf="@id/name"
-            app:layout_constraintStart_toStartOf="@id/name"
-            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintEnd_toEndOf="@id/titleName"
+            app:layout_constraintStart_toStartOf="@id/titleName"
+            app:layout_constraintTop_toBottomOf="@id/titleName"
             tools:text="Ветчина, шампиньоны, увеличенная порция моцареллы, томатный соус" />
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buy"
+            android:id="@+id/score"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="от 345 р"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/TODO"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_baseline_star_24"
+            app:iconTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/description" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/synopsis" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

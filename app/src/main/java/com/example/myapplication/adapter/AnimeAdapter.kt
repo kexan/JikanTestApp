@@ -36,17 +36,21 @@ class AnimeViewHolder(
     private val onInteractionListener: OnInteractionListener,
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(anime: Anime) {
-        val imageURL = anime.data.images.jpg.image_url
-        println(imageURL)
+        val imageURL = anime.data.images.jpg.imageUrl
         binding.apply {
-            name.text = anime.data.title
-            description.text = anime.data.synopsis
+            titleName.text = anime.data.title
+            synopsis.text = anime.data.synopsis
+            score.text = anime.data.score.toString()
             Glide.with(binding.picture)
                 .load(imageURL)
-                .centerCrop()
                 .fitCenter()
                 .timeout(10000)
                 .into(binding.picture)
+
+            card.setOnClickListener {
+                onInteractionListener.clickedOnCard(anime)
+            }
+
         }
     }
 }

@@ -7,11 +7,14 @@ import com.example.myapplication.db.AppDb
 import com.example.myapplication.dto.Anime
 import com.example.myapplication.entity.AnimeEntity
 import com.example.myapplication.entity.toEntity
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import okhttp3.internal.wait
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.concurrent.thread
 
 
 @Singleton
@@ -32,6 +35,7 @@ class AnimeRepositoryImpl @Inject constructor(
 
     override suspend fun getRandomAnime() {
         try {
+            delay(1000)
             val response = api.getRandomAnime()
             if (!response.isSuccessful) {
                 throw Exception()
