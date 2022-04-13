@@ -10,7 +10,6 @@ import com.example.myapplication.dao.AnimeDao
 import com.example.myapplication.db.AppDb
 import com.example.myapplication.entity.AnimeEntity
 import com.example.myapplication.entity.toEntity
-import kotlinx.coroutines.delay
 import java.lang.Exception
 
 @OptIn(ExperimentalPagingApi::class)
